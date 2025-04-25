@@ -3,6 +3,7 @@ const app=require("express")()
 const handleSocket=require("./handleSocket.js")
 const {Server}= require("socket.io");
 const {createServer}=require("http")
+const {getAddress,setAddres}=require("./store.js")
 const cors=require("cors")
 const port=3424;
 const server=createServer(app)
@@ -23,8 +24,8 @@ app.use(cors(coreop))
           var room_id=0
           
           io.on("connection",socket=>{
-            socket.id="12344567"
-            handleSocket(io,socket)
+            socket.emit('id',setAddres(socket.id))
+            handleSocket(getAddress,io,socket)
           })
           
           

@@ -1,11 +1,10 @@
 
            
-            const handleSocket=(socket,io)=>{
-          
-              // sockect id exchange
-              io.on('set-id',({id,partner_id})=>{
-                console.log(id)
-                socket.to(partner_id).emit('get-id',id)
+            const handleSocket=(getAddress,socket,io)=>{
+              io.on('set-id',({id,partner_code})=>{
+                const address=getAddress(partner_code)
+                console.log(address)
+                socket.to(address).emit('get-id',id)
               })
               
             
