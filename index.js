@@ -23,7 +23,7 @@ app.use(cors(coreop))
           var room_id=0
           
           io.on("connection",socket=>{
-            handleSocket(socket)
+            handleSocket(io,socket)
           })
           
           
