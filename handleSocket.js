@@ -1,11 +1,11 @@
 
            
             const handleSocket=(socket,io)=>{
-              console.log(io.id)
+          
               // sockect id exchange
               io.on('set-id',({id,partner_id})=>{
                 console.log(id)
-                sockect.emit('get-id',id)
+                socket.to(partner_id).emit('get-id',id)
               })
               
             
