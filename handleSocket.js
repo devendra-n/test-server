@@ -3,7 +3,7 @@
            
             const handleSocket=(getAddress,delAddress,socket,io)=>{
 
-              // Exchanging socket id with the help of pairing code
+            // Exchanging socket id with the help of pairing code
 
               io.on('set-id',(code)=>{
                 const address=getAddress(code)

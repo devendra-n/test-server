@@ -24,7 +24,7 @@ app.use(cors(coreop))
 
           
           io.on("connection",socket=>{
-            socket.emit('id',setAddres(socket.id))
+            io.to(socket.id).emit('id',setAddres(socket.id))
             handleSocket(getAddress,delAddress,io,socket)
           }
           )
