@@ -1,7 +1,7 @@
 
 
            
-            const handleSocket=(getAddress,socket,io)=>{
+            const handleSocket=(getAddress,delAddress,socket,io)=>{
 
               // Exchanging socket id with the help of pairing code
 
@@ -21,7 +21,11 @@
               })
 
               
-              
+              // deleting disconnected client address
+              io.on('disconnect',e=>{
+                delAddress(io.id)
+                //console.log(`Disconnected client ${io.id} due to ${e}`)
+              })
             
               
             }

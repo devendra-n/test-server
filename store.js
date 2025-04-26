@@ -1,4 +1,4 @@
-const db=[];
+var db=[];
 
 
 const getUniqueCode=(e)=>{
@@ -19,12 +19,17 @@ const checkDB=(key,value)=>{
 
 const setAddres=(e)=>{
     let generatedCode=getUniqueCode(6)
-    while(!checkDB('code',generatedCode)){
+    while(checkDB('code',generatedCode)){
         generatedCode=getUniqueCode(6)
     }
     db.push({code:generatedCode,address:e})
     console.log(db)
     return generatedCode
+}
+const delAddress=(addr)=>{
+    db=db.filter(e=>{
+        if(e.address!=addr) return e
+    })
 }
 
 const getAddress=(e)=>{
@@ -33,4 +38,4 @@ return db.filter(j=>{
     return j.code==e
 })[0].address
 }
-module.exports={getAddress,setAddres}
+module.exports={getAddress,setAddres,delAddress}
