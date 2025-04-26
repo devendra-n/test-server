@@ -19,7 +19,7 @@ const checkDB=(key,value)=>{
 
 const setAddres=(e)=>{
     let generatedCode=getUniqueCode(6)
-    while(!checkDB('code',generatedCode)){
+    while(checkDB('code',generatedCode)){
         generatedCode=getUniqueCode(6)
     }
     db.push({code:generatedCode,address:e})

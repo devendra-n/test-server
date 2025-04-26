@@ -21,10 +21,11 @@ app.use(cors(coreop))
              
             }
           }) 
-          var room_id=0
+          
           
           io.on("connection",socket=>{
-            socket.emit('id',setAddres(socket.id))
+            console.log(socket.id)
+            io.to(socket.id).emit('id',setAddres(socket.id))
             handleSocket(getAddress,io,socket)
           })
           
