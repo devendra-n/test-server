@@ -21,20 +21,13 @@ app.use(cors(coreop))
              
             }
           }) 
-<<<<<<< HEAD
+
           
           io.on("connection",socket=>{
             socket.emit('id',setAddres(socket.id))
             handleSocket(getAddress,delAddress,io,socket)
-=======
-          
-          
-          io.on("connection",socket=>{
-            console.log(socket.id)
-            io.to(socket.id).emit('id',setAddres(socket.id))
-            handleSocket(getAddress,io,socket)
->>>>>>> 2afd4310f6c5cc61d7910f0d574363a76696cfd8
-          })
+          }
+          )
           
           
       app.get("/",(req,res)=>{
@@ -42,5 +35,5 @@ app.use(cors(coreop))
         res.json({status:"Working"})
       })    
           server.listen(port,'0.0.0.0',(e)=>{
-            console.log(`Websocket: ws://127.0.0.1:${port}`);
+            console.log(`Websocket: ws://127.0.0.1:${port}`)
           })
